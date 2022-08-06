@@ -67,31 +67,31 @@ namespace InAndOut.Controllers
         }
 
 
-        public async Task<IActionResult> DeleteExpense(int? id)
-        {
-            Expense exp = await _db.Expenses.FindAsync(id);
-            _db.Remove(exp);
-            await _db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+        //public async Task<IActionResult> DeleteExpense(int? id)
+        //{
+        //    Expense exp = await _db.Expenses.FindAsync(id);
+        //    _db.Remove(exp);
+        //    await _db.SaveChangesAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
 
 
         //Post Delete
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult DeletePost(int? id)
-        //{
-        //    var obj = _db.Expenses.Find(id);
-        //    if (obj == null)
-        //    {
-        //        return NotFound();
-        //    }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePost(int? id)
+        {
+            var obj = _db.Expenses.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
 
-        //    _db.Expenses.Remove(obj);
-        //    _db.SaveChanges();
-        //    return RedirectToAction("Index");
+            _db.Expenses.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
 
-        //}
+        }
 
 
 

@@ -19,6 +19,7 @@
                     <th>Item Name</th>
                     <th>Borrower</th>
                     <th>Lender</th>
+                    <th>Changes</th>
                 </tr>
             </thead>
 
@@ -30,6 +31,13 @@
                     <td width="30%">@item.Borrower</td>
                     
                     <td width="30%">@item.Lender</td>
+                    <td width="10%">
+                        <div class="w-100 btn-group" role="group">
+                            <a asp-controller="Item" asp-action="Update" asp-route-Id="@item.Id" class="btn btn-primary mx-1">Update</a>
+                            <a asp-controller="Item" asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger mx-1">Delete</a>
+
+                        </div>
+                    </td>
                 </tr>  
                 }
             </tbody>
