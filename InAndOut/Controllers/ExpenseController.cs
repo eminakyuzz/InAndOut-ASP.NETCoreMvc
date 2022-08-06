@@ -50,10 +50,10 @@ namespace InAndOut.Controllers
 
 
 
-        //Get Delete
+       // Get Delete
         public IActionResult Delete(int? id)
         {
-            if (id==null || id==0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
@@ -90,7 +90,6 @@ namespace InAndOut.Controllers
             _db.Expenses.Remove(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
-
         }
 
 
